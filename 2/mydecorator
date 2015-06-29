@@ -1,0 +1,20 @@
+def mydecorator(functio):
+    def _mydecorator(*args, **kw):
+        #在调用实际函数之前做些填充工作
+        res = function(*args, **kw)
+        #昨晚某些填充工作之后
+        return res
+    #返回子函数
+    return _mydecorator
+
+#当装饰器需要参数时,必须使用第二级封装
+def mydecorator(arg1, arg2):
+    def _mydecorator(functio):
+        def __mydecorator(*args, **kw):
+            #在调用实际函数之前做些填充工作
+        res = function(*args, **kw)
+            #昨晚某些填充工作之后
+            return res
+        #返回子函数
+        return __mydecorator
+    return _mydecorator
